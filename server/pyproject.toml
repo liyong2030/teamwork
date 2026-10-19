@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "team-collab-server"
+version = "1.0.0"
+description = "团队协作管理系统 - 周报提交统计与项目任务管理服务"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.110,<1.0",
+    "uvicorn[standard]>=0.27,<1.0",
+    "python-multipart>=0.0.9",
+    "pydantic>=2.5,<3.0",
+    "pydantic-settings>=2.1,<3.0",
+    "email-validator>=2.1",
+    "SQLAlchemy>=2.0,<3.0",
+    "alembic>=1.13,<2.0",
+    "argon2-cffi>=23.1,<24.0",
+    "PyJWT>=2.8,<3.0",
+    "APScheduler>=3.10,<4.0",
+    "openpyxl>=3.1,<4.0",
+]
+
+[project.optional-dependencies]
+postgres = ["psycopg2-binary>=2.9"]
+dev = ["pytest>=8.0", "httpx>=0.26"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I", "UP", "B"]

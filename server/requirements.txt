@@ -1,0 +1,31 @@
+# Web 框架
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+python-multipart>=0.0.9
+
+# 配置与校验
+pydantic>=2.5,<3.0
+pydantic-settings>=2.1,<3.0
+email-validator>=2.1
+
+# ORM 与迁移
+SQLAlchemy>=2.0,<3.0
+alembic>=1.13,<2.0
+psycopg2-binary>=2.9
+
+# 安全
+argon2-cffi>=23.1,<24.0
+PyJWT>=2.8,<3.0
+
+# 定时任务
+APScheduler>=3.10,<4.0
+
+# 导出
+openpyxl>=3.1,<4.0
+
+# 统一身份认证（CAS / OIDC 走 HTTP 校验；LDAP 需要 ldap3）
+httpx>=0.26,<1.0
+ldap3>=2.9,<3.0
+
+# 测试
+pytest>=8.0,<9.0
